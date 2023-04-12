@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><h3>Drag&Drop Demo</h3></a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Link 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link 2</a>
+      </li>
+    </ul>
+  </div> -->
+</nav>
+
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-md-4" *ngFor="let ob of obj; let position = index"
+  appDragDropSwap
+  [elemPosition]="position"
+  [list]="obj"
+  (returnNewList)="returnNewList($event)">
+ <div class="card">
+  <img class="card-img-top" [src]="ob.img" alt="Card Image">
+  <div class="card-body">
+    <h6 class="card-title">{{ob.title}}</h6>
+    <p>{{ob.description}}</p>
+  </div>
+ </div>
+  </div>
+  </div>
+</div>
